@@ -1,0 +1,13 @@
+services:
+  runner:
+    build:
+      context: .
+      dockerfile: ./runner/Dockerfile
+      args:
+        USER_ID: ${USER_ID:-1000}
+        GROUP_ID: ${GROUP_ID:-1000}
+    restart: always
+    volumes:
+      - ./config:/home/runner/config:ro
+      - ./scripts:/home/runner/scripts:ro
+    env_file: .env
