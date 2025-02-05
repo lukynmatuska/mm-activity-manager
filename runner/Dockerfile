@@ -52,7 +52,7 @@ USER ${USER_ID}:${GROUP_ID}
 WORKDIR /home/runner
 
 # Create PDM environment
-RUN pip install pdm && pdm install
+RUN pip install pdm && python -m pdm install
 
 # Just test the crontab format
 RUN set -eux; \
