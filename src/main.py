@@ -8,6 +8,9 @@ import requests
 MM_URL = os.getenv("MM_URL", "https://your-mattermost-instance.com")
 MM_TOKEN = os.getenv("MM_TOKEN", "YOUR_ACCESS_TOKEN")
 MM_USER_ID = os.getenv("MM_USER_ID", "YOUR_USER_ID")
+MM_STATUS = os.getenv("MM_STATUS", "online")
+MM_STATUS_EMOJI = os.getenv("MM_STATUS_EMOJI", "house")
+MM_STATUS_TEXT = os.getenv("MM_STATUS_TEXT", "Working from home")
 REQUESTS_TIMEOUT = float(os.getenv("REQUESTS_TIMEOUT", "10"))
 
 headers = {
@@ -40,7 +43,7 @@ def send_request(
 
 def set_status(
     user_id: str = MM_USER_ID,
-    status: str = "online",
+    status: str = MM_STATUS,
     dnd_end_time: int | None = None
 ):
     """
@@ -58,8 +61,8 @@ def set_status(
 
 def set_custom_status(
     user_id: str = MM_USER_ID,
-    emoji: str = "house",
-    text: str = "Working from home",
+    emoji: str = MM_STATUS_EMOJI,
+    text: str = MM_STATUS_TEXT,
     duration: str | None = None,
     expires_at: str | None = None
 ):
