@@ -2,8 +2,6 @@
 from datetime import datetime
 import os
 import requests
-# import time
-# import threading
 
 MM_URL = os.getenv("MM_URL", "https://your-mattermost-instance.com")
 MM_TOKEN = os.getenv("MM_TOKEN", "YOUR_ACCESS_TOKEN")
