@@ -8,4 +8,5 @@
 # |  |  |  |  |
 # *  *  *  *  * user-name  command to be executed
 # Note: Supercronic does not support changing users when running tasks! Setting USER will have no effect.
-  0 6-15  *  *  5 pdm run src/main.py
+  0 6-15  *  *  5   pdm run src/main.py
+  0 11    *  *  1-4 MM_STATUS=away MM_STATUS_DND_END_TIME=$(( $(date +%s) + 5400 )) MM_STATUS_EXPIRES_AT=$(date -d @$MM_STATUS_DND_END_TIME -u +"%Y-%m-%dT%H:%M:%SZ") MM_STATUS_EMOJI=fork_and_knife MM_STATUS_TEXT="Lunch time" pdm run src/main.py
